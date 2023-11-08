@@ -1,14 +1,18 @@
-import { Heading, Center } from "native-base";
+import { Heading, Center, TouchableOpacity, Text, Box , Button} from "native-base";
 import { useNavigation } from "@react-navigation/native";
 
 const Wallet = () => {
   const navigation = useNavigation();
-  
+
   return (
     <>
-        <Center flex={1}>
-            <Heading>wallet</Heading>
-        </Center>
+      <Center flex={1}>
+      <Button onPress={() =>
+                  navigation.navigate("Home")
+                }>
+            <Text>Login</Text>
+      </Button>
+      </Center>
     </>
   );
 };

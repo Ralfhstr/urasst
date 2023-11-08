@@ -4,6 +4,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { NativeBaseProvider, Text } from "native-base";
 // import Ionicons from "@expo/vector-icons/Ionicons";
 import { Ionicons } from '@expo/vector-icons';
+import Detail_jadwal from "./screens/detail_jadwal";
+import Edit_jadwal from "./screens/edit_jadwal";
+import Jadwal from "./screens/jadwal";
 import Home from "./screens/home";
 import Wallet from "./screens/wallet";
 import Create from "./screens/add";
@@ -54,7 +57,8 @@ const Tabs = () => {
         },
         tabBarIconStyle: { marginTop: 5 },
         tabBarStyle: {
-          height: 70,
+          height: 75,
+          paddingBottom: 10,
           borderTopWidth: 0,
           marginBottom: 20,
           marginHorizontal: 20,
@@ -68,6 +72,9 @@ const Tabs = () => {
       <Tab.Screen name="Create" component={Create} options={noHead} />
       <Tab.Screen name="Calendar" component={Calendar} options={noHead} />
       <Tab.Screen name="Setting" component={Setting} options={noHead} />
+      <Tab.Screen name="Jadwal" component={Jadwal} options={noHead} />
+      <Tab.Screen name="Detail_jadwal" component={Detail_jadwal} options={noHead} />
+      <Tab.Screen name="Edit_jadwal" component={Edit_jadwal} options={noHead} />
     </Tab.Navigator>
   );
 };
@@ -77,10 +84,11 @@ const App = () => {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Tabs} options={noHead} />
-          <Stack.Screen name="Wallet" component={Tabs} options={noHead} />
-          <Stack.Screen name="Create" component={Tabs} options={noHead} />
-          <Stack.Screen name="Setting" component={Tabs} options={noHead} />
+          <Stack.Screen 
+          name="Tabs"
+          component={Tabs}
+          options={noHead}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
