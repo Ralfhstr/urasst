@@ -46,6 +46,18 @@ const Tabs = () => {
               iconName = "settings-outline";
               iconSize = 25;
               break;
+            case "Setting":
+              iconName = "settings-outline";
+              iconSize = 25;
+              break;
+            case "Detail_jadwal":
+              iconName = "thumbs-down-outline";
+              iconSize = 25;
+              break;
+            case "Setting":
+              iconName = "settings-outline";
+              iconSize = 25;
+              break;
           }
           return (
             <Ionicons
@@ -57,6 +69,7 @@ const Tabs = () => {
         },
         tabBarIconStyle: { marginTop: 5 },
         tabBarStyle: {
+          position: "absolute",
           height: 75,
           paddingBottom: 10,
           borderTopWidth: 0,

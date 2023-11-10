@@ -7,9 +7,7 @@ const Wallet = () => {
   return (
     <>
       <Center flex={1}>
-      <Button onPress={() =>
-                  navigation.navigate("Home")
-                }>
+      <Button>
             <Text>Login</Text>
       </Button>
       </Center>
