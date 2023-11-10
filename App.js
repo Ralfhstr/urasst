@@ -2,8 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { NativeBaseProvider, Text } from "native-base";
-// import Ionicons from "@expo/vector-icons/Ionicons";
-import { Ionicons } from '@expo/vector-icons';
+import Ionicons from "@expo/vector-icons/Ionicons";
 import Home from "./screens/home";
 import Wallet from "./screens/wallet";
 import Create from "./screens/add";
@@ -18,47 +17,54 @@ const noHead = { headerShown: false };
 
 const Tabs = () => {
   return (
-    <Tab.Navigator
+    <Tab.Navigator 
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color }) => {
-          let iconName;
+          let iconName, iconName1;
           switch (route.name) {
             case "Home":
               iconName = "home-outline";
+              iconName1 = "home";
               iconSize = 25;
               break;
             case "Wallet":
               iconName = "wallet-outline";
+              iconName1 = "wallet";
               iconSize = 25;
               break;
             case "Create":
               iconName = "add-circle-outline";
+              iconName1 = "add-circle";
               iconSize = 50;
               break;
             case "Calendar":
               iconName = "calendar-outline";
+              iconName1 = "calendar";
               iconSize = 25;
               break;
             case "Setting":
-              iconName = "settings-outline";
+              iconName = "person-outline";
+              iconName1 = "person";
               iconSize = 25;
               break;
           }
           return (
             <Ionicons
-              name={iconName}
+              name={focused ? iconName1 : iconName}
               size={iconSize}
-              color={focused ? "black" : color}
+              color={'#0e7490'}
             />
           );
         },
         tabBarIconStyle: { marginTop: 5 },
         tabBarStyle: {
+          position: "absolute",
           height: 70,
           borderTopWidth: 0,
           marginBottom: 20,
           marginHorizontal: 20,
-          borderRadius: 20
+          borderRadius: 20,
+          backgroundColor: 'white',
         },
         tabBarLabel: () => null
       })}
@@ -66,7 +72,7 @@ const Tabs = () => {
       <Tab.Screen name="Home" component={Home} options={noHead} />
       <Tab.Screen name="Wallet" component={Wallet} options={noHead} />
       <Tab.Screen name="Create" component={Create} options={noHead} />
-      <Tab.Screen name="Calendar" component={Calendar} options={noHead} />
+      <Tab.Screen name="Calendar" component={Setting} options={noHead} />
       <Tab.Screen name="Setting" component={Setting} options={noHead} />
     </Tab.Navigator>
   );
@@ -80,6 +86,7 @@ const App = () => {
           <Stack.Screen name="Home" component={Tabs} options={noHead} />
           <Stack.Screen name="Wallet" component={Tabs} options={noHead} />
           <Stack.Screen name="Create" component={Tabs} options={noHead} />
+          <Stack.Screen name="Calendar" component={Tabs} options={noHead} />
           <Stack.Screen name="Setting" component={Tabs} options={noHead} />
         </Stack.Navigator>
       </NavigationContainer>

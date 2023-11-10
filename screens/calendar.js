@@ -1,16 +1,70 @@
-import { Heading, Center } from "native-base";
-import { useNavigation } from "@react-navigation/native";
+// import { Text, View, Alert, Pressable, StyleSheet } from "react-native";
+// import {
+//   Agenda,
+//   AgendaEntry,
+//   AgendaSchedule,
+//   DateData,
+// } from "react-native-calendars";
+// import { useState } from "react";
+// import events from "../assets/data/events.json";
 
-const Calendar = () => {
-  const navigation = useNavigation();
-  
-  return (
-    <>
-        <Center flex={1}>
-            <Heading>Callel</Heading>
-        </Center>
-    </>
-  );
-};
+// export default function Calendar({ navigation}) {
+//   const [items, setItems] = useState<AgendaSchedule>({});
 
-export default Calendar;
+//   const loadItems = (day: DateData) => {
+//     setItems(events);
+//   };
+
+//   const renderEmptyDate = () => {
+//     return (
+//       <View style={styles.emptyDate}>
+//         <Text>This is empty date!</Text>
+//       </View>
+//     );
+//   };
+
+//   const renderItem = (reservation: AgendaEntry, isFirst: boolean) => {
+//     const fontSize = isFirst ? 16 : 14;
+//     const color = isFirst ? "black" : "#43515c";
+
+//     return (
+//       <Pressable
+//         style={[styles.item, { height: reservation.height }]}
+//         onPress={() => Alert.alert(reservation.name)}
+//       >
+//         <Text style={{ fontSize, color }}>{reservation.name}</Text>
+//       </Pressable>
+//     );
+//   };
+//   return (
+//     <View style={styles.container}>
+//       <Agenda
+//         items={items}
+//         selected={"2022-11-25"}
+//         renderItem={renderItem}
+//         renderEmptyDate={renderEmptyDate}
+//         loadItemsForMonth={loadItems}
+//         // showOnlySelectedDayItems
+//       />
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//   },
+//   item: {
+//     backgroundColor: "white",
+//     flex: 1,
+//     borderRadius: 5,
+//     padding: 10,
+//     marginRight: 10,
+//     marginTop: 17,
+//   },
+//   emptyDate: {
+//     height: 15,
+//     flex: 1,
+//     paddingTop: 30,
+//   },
+// });

@@ -1,16 +1,13 @@
-import { Heading, Center } from "native-base";
-import { useNavigation } from "@react-navigation/native";
+import { View, Text } from 'react-native'
+import React from 'react'
+import { Box, Center, Heading } from 'native-base'
 
 const Home = () => {
-  const navigation = useNavigation();
-  
   return (
-    <>
-        <Center flex={1}>
-            <Heading>Homeee</Heading>
-        </Center>
-    </>
-  );
-};
+    <Center flex={1}>
+      <Heading>home</Heading>
+    </Center>
+  )
+}
 
-export default Home;
+export default Home
