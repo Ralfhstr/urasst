@@ -63,7 +63,7 @@ const Tabs = () => {
             <Ionicons
               name={iconName}
               size={iconSize}
-              color={focused ? "black" : color}
+              color={"#0e7490"}
             />
           );
         },
