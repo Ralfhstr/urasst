@@ -8,6 +8,7 @@ import Wallet from "./screens/wallet";
 import Create from "./screens/add";
 import Setting from "./screens/setting";
 import Calendar from "./screens/calendar";
+import Category from "./screens/category";
 
 // Navigator Declaration
 const Stack = createNativeStackNavigator();
@@ -72,7 +73,7 @@ const Tabs = () => {
       <Tab.Screen name="Home" component={Home} options={noHead} />
       <Tab.Screen name="Wallet" component={Wallet} options={noHead} />
       <Tab.Screen name="Create" component={Create} options={noHead} />
-      <Tab.Screen name="Calendar" component={Setting} options={noHead} />
+      <Tab.Screen name="Calendar" component={Calendar} options={noHead} />
       <Tab.Screen name="Setting" component={Setting} options={noHead} />
     </Tab.Navigator>
   );
@@ -88,6 +89,7 @@ const App = () => {
           <Stack.Screen name="Create" component={Tabs} options={noHead} />
           <Stack.Screen name="Calendar" component={Tabs} options={noHead} />
           <Stack.Screen name="Setting" component={Tabs} options={noHead} />
+          <Stack.Screen name="Category" component={Category} options={noHead} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Center, Stack, Heading, Text, HStack, VStack, Progress, Checkbox, ScrollView, NativeBaseProvider, Button, Modal, } from 'native-base';
+import { TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from '@expo/vector-icons';
 
 const Home = () => {
@@ -10,6 +12,8 @@ const Home = () => {
     // You can perform additional logic here before showing the modal
     setShowModal(true);
   };
+
+  const navigation = useNavigation();
 
   return (
     <NativeBaseProvider>
@@ -78,6 +82,14 @@ const Home = () => {
                   </VStack>
                   <Checkbox flex={1} colorScheme="green" aria-label="Deskripsi aksesibilitas untuk Checkbox ini"></Checkbox>
                 </HStack>
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  onPress={() => navigation.navigate("Category")}
+                >
+                  <HStack mt={5} rounded={"2xl"} justifyContent={'center'}>
+                    <Ionicons name="caret-down-outline" size={24} color="#0e7490" />
+                  </HStack>
+                </TouchableOpacity>
               </Stack>
             </Box>
           </Center>
@@ -107,7 +119,6 @@ const Home = () => {
                 </Button>
                 <Button
                   onPress={() => {
-                    // Add your logic here for handling the confirmation
                     setShowModal(false);
                   }}
                 >
