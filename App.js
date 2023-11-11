@@ -12,6 +12,7 @@ import Wallet from "./screens/wallet";
 import Create from "./screens/add";
 import Setting from "./screens/setting";
 import Calendar from "./screens/calendar";
+import Create_jadwal from "./screens/create_jadwal";
 
 // Navigator Declaration
 const Stack = createNativeStackNavigator();
@@ -43,19 +44,11 @@ const Tabs = () => {
               iconSize = 25;
               break;
             case "Setting":
-              iconName = "settings-outline";
+              iconName = "person-outline";
               iconSize = 25;
               break;
-            case "Setting":
-              iconName = "settings-outline";
-              iconSize = 25;
-              break;
-            case "Detail_jadwal":
-              iconName = "thumbs-down-outline";
-              iconSize = 25;
-              break;
-            case "Setting":
-              iconName = "settings-outline";
+            case "Create_jadwal":
+              iconName = "create-outline";
               iconSize = 25;
               break;
           }
@@ -85,9 +78,9 @@ const Tabs = () => {
       <Tab.Screen name="Create" component={Create} options={noHead} />
       <Tab.Screen name="Calendar" component={Calendar} options={noHead} />
       <Tab.Screen name="Setting" component={Setting} options={noHead} />
+      <Tab.Screen name="Create_jadwal" component={Create_jadwal} options={noHead}/>
       <Tab.Screen name="Jadwal" component={Jadwal} options={noHead} />
-      <Tab.Screen name="Detail_jadwal" component={Detail_jadwal} options={noHead} />
-      <Tab.Screen name="Edit_jadwal" component={Edit_jadwal} options={noHead} />
+      <Tab.Screen name="Edit_jadwal" component={Edit_jadwal} options={noHead}/>
     </Tab.Navigator>
   );
 };

@@ -4,7 +4,6 @@ import { Heading, Center, Box, Text, HStack, Divider, Card, VStack, Button } fro
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Gap from '../components/Gap';
 import { useNavigation } from '@react-navigation/native';
-import { useRoute } from '@react-navigation/native';
 
 const Detail_jadwal = () => {
   const navigation = useNavigation();
