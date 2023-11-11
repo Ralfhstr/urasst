@@ -9,6 +9,11 @@ import Wallet from "./screens/wallet";
 import Create from "./screens/add";
 import Setting from "./screens/setting";
 import Calendar from "./screens/calendar";
+import Awal from "./screens/awal";
+import Login from "./screens/login";
+import Signup from "./screens/signup";
+import Fpass from "./screens/fpassword";
+
 
 // Navigator Declaration
 const Stack = createNativeStackNavigator();
@@ -43,12 +48,16 @@ const Tabs = () => {
               iconName = "settings-outline";
               iconSize = 25;
               break;
+            case "FPass":
+              iconName = "settings-outline";
+              iconSize = 25;
+              break;
           }
           return (
             <Ionicons
               name={iconName}
               size={iconSize}
-              color={focused ? "black" : color}
+              color={focused ? "#176B87" : color}
             />
           );
         },
@@ -68,6 +77,7 @@ const Tabs = () => {
       <Tab.Screen name="Create" component={Create} options={noHead} />
       <Tab.Screen name="Calendar" component={Calendar} options={noHead} />
       <Tab.Screen name="Setting" component={Setting} options={noHead} />
+      <Tab.Screen name="FPass" component={Fpass} options={noHead} />
     </Tab.Navigator>
   );
 };
@@ -77,6 +87,10 @@ const App = () => {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen name="Awal" component={Awal} options={noHead} /> 
+          <Stack.Screen name="Login" component={Login} options={noHead} />
+          <Stack.Screen name="Signup" component={Signup} options={noHead} />
+          <Stack.Screen name="FPass" component={Fpass} options={noHead} />          
           <Stack.Screen name="Home" component={Tabs} options={noHead} />
           <Stack.Screen name="Wallet" component={Tabs} options={noHead} />
           <Stack.Screen name="Create" component={Tabs} options={noHead} />

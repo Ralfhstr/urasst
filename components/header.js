@@ -11,7 +11,7 @@ const Header = ({ title, withBack = false }) => {
   return (
     <SafeAreaView>
       <StatusBar barStyle="light" backgroundColor={trueGray900} />
-      <Box bg={"trueGray.900"} p={"4"}>
+      <Box bg={trueGray900} p={"4"}>
         <HStack justifyContent="space-between" alignItems="center">
           <HStack alignItems="center">
             {!withBack ? (
