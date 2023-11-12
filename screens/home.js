@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Center, Stack, Heading, Text, HStack, VStack, Progress, Checkbox, ScrollView, NativeBaseProvider, Button, Modal, } from 'native-base';
+import { Box, Center, Stack, Heading, Text, HStack, VStack, Progress, Checkbox, ScrollView, NativeBaseProvider, Button, Modal, StatusBar, } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native";
@@ -9,7 +9,6 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleCheckboxPress = () => {
-    // You can perform additional logic here before showing the modal
     setShowModal(true);
   };
 
@@ -19,12 +18,9 @@ const Home = () => {
     <NativeBaseProvider>
       <SafeAreaView flex={1}>
         <Box flex={1}>
-          <Heading mt={6} ml={6} color={'primary.700'}><Ionicons name="analytics-sharp" size={24} color="primary.700" />  Analytics</Heading>
+          <Heading mt={6} ml={8} color={'primary.700'}><Ionicons name="analytics-sharp" size={24} color="#0e7490" />  Analytics</Heading>
           <Center>
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={() => navigation.navigate("Budget")}
-            >
+            <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate("Budget")}>
               <Box p={4} mt={5} w={80} h={130} rounded="2xl" overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
                 <Stack space={3}>
                   <HStack justifyContent={"space-between"}>
@@ -46,7 +42,7 @@ const Home = () => {
               </Box>
             </TouchableOpacity>
           </Center>
-          <Heading mt={6} ml={6} color={'primary.700'}><Ionicons name="create-outline" size={24} color="primary.700" /> My Task</Heading>
+          <Heading mt={6} ml={8} color={'primary.700'}><Ionicons name="create-outline" size={24} color="#0e7490" /> My Schedule</Heading>
           <Center>
             <Box p={4} mt={5} w={80} h={340} rounded="2xl" overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
               <Stack space={2}>
@@ -59,14 +55,10 @@ const Home = () => {
                     </HStack>
                     <Text color={'white'} fontSize={'xs'}>Fruits and Water</Text>
                   </VStack>
-                  <Checkbox flex={1}
-                    borderColor={"primary.700"}
-                    colorScheme="green"
-                    aria-label="Deskripsi aksesibilitas untuk Checkbox ini"
-                    onPress={handleCheckboxPress}></Checkbox>
+                  <Checkbox flex={1} borderColor={"primary.700"} colorScheme="green" aria-label="Deskripsi aksesibilitas untuk Checkbox ini" onPress={handleCheckboxPress}></Checkbox>
                 </HStack>
                 <HStack p={4} mb={4} rounded={"2xl"} backgroundColor={"white"} justifyContent={'space-between'} shadow={1}>
-                  <Text color={"primary.700"} flex={1} mr={-10}> 6:30 - 7:30 </Text>
+                  <Text color={"#0e7490"} flex={1} mr={-10}> 6:30 - 7:30 </Text>
                   <VStack flex={1}>
                     <HStack>
                       <Ionicons name="barbell-outline" color={"#0e7490"}></Ionicons>
@@ -74,7 +66,7 @@ const Home = () => {
                     </HStack>
                     <Text color={"primary.700"} fontSize={'xs'}>Exercise and Gym</Text>
                   </VStack>
-                  <Checkbox flex={1} colorScheme="green" aria-label="Deskripsi aksesibilitas untuk Checkbox ini"></Checkbox>
+                  <Checkbox flex={1} borderColor={"primary.700"} colorScheme="green" aria-label="Deskripsi aksesibilitas untuk Checkbox ini" onPress={handleCheckboxPress}></Checkbox>
                 </HStack>
                 <HStack p={4} rounded={"2xl"} backgroundColor={"white"} justifyContent={'space-between'} shadow={1}>
                   <Text color={"primary.700"} flex={1} mr={-10}> 10:00 - 10:30 </Text>
@@ -85,12 +77,9 @@ const Home = () => {
                     </HStack>
                     <Text color={"primary.700"} fontSize={'xs'}>Meal and break</Text>
                   </VStack>
-                  <Checkbox flex={1} colorScheme="green" aria-label="Deskripsi aksesibilitas untuk Checkbox ini"></Checkbox>
+                  <Checkbox flex={1} borderColor={"primary.700"} colorScheme="green" aria-label="Deskripsi aksesibilitas untuk Checkbox ini" onPress={handleCheckboxPress}></Checkbox>
                 </HStack>
-                <TouchableOpacity
-                  activeOpacity={0.5}
-                  onPress={() => navigation.navigate("Jadwal")}
-                >
+                <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate("Jadwal")}>
                   <HStack mt={5} rounded={"2xl"} justifyContent={'center'}>
                     <Ionicons name="caret-down-outline" size={24} color="#0e7490" />
                   </HStack>
@@ -99,12 +88,7 @@ const Home = () => {
             </Box>
           </Center>
         </Box>
-        <Modal isOpen={showModal} onClose={() => setShowModal(false)} _backdrop={{
-          _dark: {
-            bg: "coolGray.800",
-          },
-          bg: "warmGray.50",
-        }}>
+        <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
           <Modal.Content maxWidth="350" maxH="212">
             <Modal.CloseButton />
             <Modal.Header>Confirmation</Modal.Header>
@@ -113,20 +97,10 @@ const Home = () => {
             </Modal.Body>
             <Modal.Footer>
               <Button.Group space={2}>
-                <Button
-                  variant="ghost"
-                  colorScheme="blueGray"
-                  onPress={() => {
-                    setShowModal(false);
-                  }}
-                >
+                <Button variant="ghost" colorScheme="blueGray" onPress={() => { setShowModal(false); }}>
                   Cancel
                 </Button>
-                <Button
-                  onPress={() => {
-                    setShowModal(false);
-                  }}
-                >
+                <Button onPress={() => { setShowModal(false); }}>
                   Confirm
                 </Button>
               </Button.Group>
