@@ -27,9 +27,8 @@ const Jadwal = () => {
 
   return (
     <SafeAreaView backgroundColor={'#176B87'} flex={1}>
-      <StatusBar barStyle="light" />
       <ScrollView>
-        <Box flex={1}>
+        <Box flex={1} mt={3}>
           <HStack ml={7}>
             <TouchableOpacity onPress={() => navigation.navigate('Create_jadwal')}>
               <Ionicons name="arrow-back-outline" size={40} color={'white'} />
@@ -41,9 +40,8 @@ const Jadwal = () => {
             </Center>
           </HStack>
           <Gap height={10} />
-          <Box flex={1} p={7}>
-            <VStack>
-              <HStack justifyContent={'space-between'}>
+            <VStack p={5}>
+              <HStack justifyContent={'space-between'} >
                 <Heading color={'white'}>Today</Heading>
                 <Button backgroundColor={'muted.50'}>
                   <Text> Add New </Text>
@@ -94,7 +92,6 @@ const Jadwal = () => {
               ))}
             </Card>
           </Box>
-        </Box>
       </ScrollView>
     </SafeAreaView>
   );

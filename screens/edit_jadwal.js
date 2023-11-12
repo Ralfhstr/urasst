@@ -15,7 +15,7 @@ const Edit_jadwal = () => {
     <SafeAreaView flex={1} backgroundColor={'#176B87'}>
       <Box p={3} mt={3} flex={1}>
         <HStack ml={2} justifyContent={'flex-start'}>
-          <TouchableOpacity onPress={() => navigation.navigate('Detail_jadwal')} >
+          <TouchableOpacity onPress={() => navigation.navigate('Jadwal')} >
             <Ionicons name='arrow-back-outline' size={40} color={"white"} />
           </TouchableOpacity>
           <Heading ml={20} mt={1} color={'white'}>
@@ -36,41 +36,41 @@ const Edit_jadwal = () => {
                       <Gap height={10} />
                       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                         <HStack>
-                          <Button backgroundColor={'primary.600'} mr={5} borderRadius={10} w={40} flex={1}>
                             <Center>
-                              <Text>
-                                Sport
-                              </Text>
+                              <Button backgroundColor={'primary.600'} mr={5} borderRadius={10} w={20}>
+                                <Text >
+                                  Sport
+                                </Text>
+                              </Button>
                             </Center>
-                          </Button>
-                          <Card backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={40} flex={1}>
                             <Center>
-                              <Text>
-                                Food
-                              </Text>
+                              <Button backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={20}>
+                                <Text >
+                                  Food
+                                </Text>
+                              </Button>
                             </Center>
-                          </Card>
-                          <Card backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={40}>
                             <Center>
-                              <Text>
-                                Work
-                              </Text>
+                              <Button backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={20}>
+                                <Text >
+                                  Work
+                                </Text>
+                              </Button>
                             </Center>
-                          </Card>
-                          <Card backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={40}>
                             <Center>
-                              <Text>
-                                Music
-                              </Text>
+                              <Button backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={20}>
+                                <Text >
+                                  Music
+                                </Text>
+                              </Button>
                             </Center>
-                          </Card>
-                          <Card backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={40}>
                             <Center>
-                              <Text>
-                                Other
-                              </Text>
+                              <Button backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={20}>
+                                <Text >
+                                  Other
+                                </Text>
+                              </Button>
                             </Center>
-                          </Card>
                         </HStack>
                       </ScrollView>
                       <FormControl.HelperText>
@@ -81,7 +81,7 @@ const Edit_jadwal = () => {
                         Time
                       </Heading>
                       <Gap height={10} />
-                      <TextArea w={'xs'} placeholder='06:00 - 07:00' avoidKeyboard />
+                      <Input w={'xs'} placeholder='06:00 - 07:00' avoidKeyboard />
                       <FormControl.HelperText>
                         Select Time
                       </FormControl.HelperText>
@@ -90,9 +90,17 @@ const Edit_jadwal = () => {
                         Activity
                       </Heading>
                       <Gap height={10} />
-                      <TextArea w={'xs'} placeholder='Exercise and Gym' />
+                      <Input w={'xs'} placeholder='Exercise and Gym' />
                       <FormControl.HelperText>
                         Insert New Activity
+                      </FormControl.HelperText>
+                      <Gap height={10} />
+                      <Heading size={'sm'}>
+                        Description
+                      </Heading>
+                      <Input w={'xs'} placeholder='Exercise and Gym' />
+                      <FormControl.HelperText>
+                        New Description Activity
                       </FormControl.HelperText>
                       <Gap height={20} />
                     </Stack>
