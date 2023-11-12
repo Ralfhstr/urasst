@@ -21,25 +21,30 @@ const Home = () => {
         <Box flex={1}>
           <Heading mt={6} ml={6} color={'primary.700'}><Ionicons name="analytics-sharp" size={24} color="primary.700" />  Analytics</Heading>
           <Center>
-            <Box p={4} mt={5} w={80} h={130} rounded="2xl" overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
-              <Stack space={3}>
-                <HStack justifyContent={"space-between"}>
-                  <Heading size="lg" color={"primary.700"}>
-                    Money
-                  </Heading>
-                  <Heading ml={-1} fontSize="2xl" color={"primary.700"}>$8,500</Heading>
-                </HStack>
-                <Progress value={80} />
-                <HStack justifyContent={"space-between"}>
-                  <Text fontSize={"sm"} color={'#be123c'}>
-                    spent $6,800
-                  </Text>
-                  <Text fontSize={"sm"} color={'#15803d'}>
-                    left $1,700
-                  </Text>
-                </HStack>
-              </Stack>
-            </Box>
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigation.navigate("Budget")}
+            >
+              <Box p={4} mt={5} w={80} h={130} rounded="2xl" overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
+                <Stack space={3}>
+                  <HStack justifyContent={"space-between"}>
+                    <Heading size="lg" color={"primary.700"}>
+                      Money
+                    </Heading>
+                    <Heading ml={-1} fontSize="2xl" color={"primary.700"}>$8,500</Heading>
+                  </HStack>
+                  <Progress value={80} />
+                  <HStack justifyContent={"space-between"}>
+                    <Text fontSize={"sm"} color={'#be123c'}>
+                      spent $6,800
+                    </Text>
+                    <Text fontSize={"sm"} color={'#15803d'}>
+                      left $1,700
+                    </Text>
+                  </HStack>
+                </Stack>
+              </Box>
+            </TouchableOpacity>
           </Center>
           <Heading mt={6} ml={6} color={'primary.700'}><Ionicons name="create-outline" size={24} color="primary.700" /> My Task</Heading>
           <Center>
@@ -84,7 +89,7 @@ const Home = () => {
                 </HStack>
                 <TouchableOpacity
                   activeOpacity={0.5}
-                  onPress={() => navigation.navigate("Category")}
+                  onPress={() => navigation.navigate("Jadwal")}
                 >
                   <HStack mt={5} rounded={"2xl"} justifyContent={'center'}>
                     <Ionicons name="caret-down-outline" size={24} color="#0e7490" />
