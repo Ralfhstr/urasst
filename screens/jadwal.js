@@ -2,6 +2,7 @@ import { View, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView } from 're
 import React, { useState } from 'react';
 import { Center, Heading, Image, HStack, Text, Box, VStack, Button, Card, Flex, Checkbox, StatusBar } from 'native-base'
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { NativeBaseProvider } from "native-base";
 import Gap from '../components/Gap';
 import { useNavigation } from '@react-navigation/native';
 
@@ -26,20 +27,21 @@ const Jadwal = () => {
   };
 
   return (
-    <SafeAreaView backgroundColor={'#176B87'} flex={1}>
-      <ScrollView>
-        <Box flex={1} mt={3}>
-          <HStack ml={7}>
-            <TouchableOpacity onPress={() => navigation.navigate('Create_jadwal')}>
-              <Ionicons name="arrow-back-outline" size={40} color={'white'} />
-            </TouchableOpacity>
-            <Center>
-              <Heading size="lg" color={'white'} ml={12} mt={1}>
-                14 September
-              </Heading>
-            </Center>
-          </HStack>
-          <Gap height={10} />
+    <NativeBaseProvider>
+      <SafeAreaView backgroundColor={'#176B87'} flex={1}>
+        <ScrollView>
+          <Box flex={1} mt={3}>
+            <HStack ml={7}>
+              <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                <Ionicons name="arrow-back-outline" size={40} color={'white'} />
+              </TouchableOpacity>
+              <Center>
+                <Heading size="lg" color={'white'} ml={12} mt={1}>
+                  14 September
+                </Heading>
+              </Center>
+            </HStack>
+            <Gap height={10} />
             <VStack p={5}>
               <HStack justifyContent={'space-between'} >
                 <Heading color={'white'}>Today</Heading>
@@ -51,7 +53,7 @@ const Jadwal = () => {
             </VStack>
           </Box>
           <Gap height={10} />
-          <Box flex={1}  p={3}>
+          <Box flex={1} p={3}>
             <Card backgroundColor={'white'} borderTopRadius={30} borderBottomRadius={30} >
               <Heading>My Tasks</Heading>
               <Gap height={20} />
@@ -92,8 +94,9 @@ const Jadwal = () => {
               ))}
             </Card>
           </Box>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </NativeBaseProvider>
   );
 };
 

@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { NativeBaseProvider, Text } from "native-base";
+import { NativeBaseProvider} from "native-base";
 import { Ionicons } from '@expo/vector-icons';
 import Edit_jadwal from "./screens/edit_jadwal";
 import Jadwal from "./screens/jadwal";
@@ -11,7 +11,7 @@ import Setting from "./screens/setting";
 import Calendar from "./screens/calendar";
 import Create_jadwal from "./screens/create_jadwal";
 
-// Navigator Declaration
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 

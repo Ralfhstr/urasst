@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { TouchableOpacity } from 'react-native';
-import { Box, Center, Heading, Text, HStack, VStack,  NativeBaseProvider, Button, Modal, FormControl, Input,  } from 'native-base';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { TouchableOpacity, SafeAreaView } from 'react-native';
+import { Box, Center, Heading, Text, HStack, VStack, Button, Modal, FormControl, Input, } from 'native-base';
+import { NativeBaseProvider } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from '@expo/vector-icons';
 
@@ -36,9 +36,7 @@ const Create_jadwal = () => {
                                     <Heading color={'black'} fontSize={'lg'}> Sport</Heading>
                                     <Text ml={1} color={'black'} fontSize={'sm'}>6 Task</Text>
                                 </VStack>
-                                <TouchableOpacity onPress={() => navigation.navigate('Jadwal')}>
-                                    <Ionicons name="chevron-forward-outline" color={"black"} size={40} />
-                                </TouchableOpacity>
+                                <Ionicons name="chevron-forward-outline" color={"black"} size={40} />
                             </HStack>
                             <HStack p={4} mb={4} rounded={"2xl"} backgroundColor={"white"} shadow={1}>
                                 <Ionicons name="fast-food-outline" color={"black"} size={40} />
