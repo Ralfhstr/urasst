@@ -48,10 +48,6 @@ const Tabs = () => {
               iconName = "settings-outline";
               iconSize = 25;
               break;
-            case "FPass":
-              iconName = "settings-outline";
-              iconSize = 25;
-              break;
           }
           return (
             <Ionicons
@@ -77,7 +73,7 @@ const Tabs = () => {
       <Tab.Screen name="Create" component={Create} options={noHead} />
       <Tab.Screen name="Calendar" component={Calendar} options={noHead} />
       <Tab.Screen name="Setting" component={Setting} options={noHead} />
-      <Tab.Screen name="FPass" component={Fpass} options={noHead} />
+      {/* <Tab.Screen name="FPass" component={Fpass} options={noHead} /> */}
     </Tab.Navigator>
   );
 };
