@@ -9,6 +9,7 @@ import Wallet from "./screens/wallet";
 import Create from "./screens/add";
 import Setting from "./screens/setting";
 import Calendar from "./screens/calendar";
+import Edit_Profile from "./screens/edit_profile";
 
 // Navigator Declaration
 const Stack = createNativeStackNavigator();
@@ -40,9 +41,13 @@ const Tabs = () => {
               iconSize = 25;
               break;
             case "Setting":
-              iconName = "settings-outline";
-              iconSize = 25;
+              iconName = "person-circle-outline";
+              iconSize = 30;
               break;
+            // case "Edit_Profile":
+            //   iconName = "edit-outline";
+            //   iconSize = 25;
+            //   break;
           }
           return (
             <Ionicons
@@ -68,6 +73,7 @@ const Tabs = () => {
       <Tab.Screen name="Create" component={Create} options={noHead} />
       <Tab.Screen name="Calendar" component={Calendar} options={noHead} />
       <Tab.Screen name="Setting" component={Setting} options={noHead} />
+      {/* <Tab.Screen name="Edit_Profile" component={Edit_Profile} options={noHead} /> */}
     </Tab.Navigator>
   );
 };
@@ -81,6 +87,7 @@ const App = () => {
           <Stack.Screen name="Wallet" component={Tabs} options={noHead} />
           <Stack.Screen name="Create" component={Tabs} options={noHead} />
           <Stack.Screen name="Setting" component={Tabs} options={noHead} />
+          <Stack.Screen name="Edit_Profile" component={Edit_Profile} options={noHead} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

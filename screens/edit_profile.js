@@ -1,0 +1,80 @@
+import React from 'react';
+import { SafeAreaView, TouchableOpacity } from 'react-native';
+import { Heading, Text, Center, Box, Image, FormControl, Input, Stack, Card, Modal, Button, VStack } from "native-base";
+import Gap from '../components/Gap';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
+const Edit_Profile = () => {
+  const [Username, setUsername] = React.useState('');
+  const [Email, setEmail] = React.useState('');
+  const [Password, setPassword] = React.useState('');
+  const [Bday, setBday] = React.useState('');
+  const navigation = useNavigation();
+  const [modalMuncul, setModalMuncul] = React.useState(false);
+
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#075985" }}>
+      <Box flex={1} backgroundColor={"#075985"}>
+        <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.goBack()}>
+          <Box mt={10} mr={10}>
+            <Ionicons name="arrow-back-outline" size={32} color="white" />
+          </Box>
+        </TouchableOpacity>
+        <Center>
+          <Heading color={'white'} size={'xl'}>Edit Profile</Heading>
+          <Image size={150} borderRadius={100} source={require("../assets/kuromi.jpg")} />
+          <Gap height={20} />
+          <Card backgroundColor={'white'} borderTopRadius={20} borderBottomRadius={20} borderColor={'#075985'} w={'100%'} h={'80%'}>
+            <Stack mt="4" space={4} p={4}>
+              <FormControl>
+                <FormControl.Label _text={{ bold: true, fontSize: "md" }}>
+                  Username
+                </FormControl.Label>
+                <Input placeholder="Username" onChangeText={(value) => setUsername(value)} />
+              </FormControl>
+              <FormControl>
+                <FormControl.Label _text={{ bold: true, fontSize: "md" }}>
+                  Email
+                </FormControl.Label>
+                <Input placeholder="Email" onChangeText={(value) => setEmail(value)} />
+              </FormControl>
+              <FormControl>
+                <FormControl.Label _text={{ bold: true, fontSize: "md" }}>
+                  Password
+                </FormControl.Label>
+                <Input placeholder="Password" onChangeText={(value) => setPassword(value)} />
+              </FormControl>
+              <FormControl>
+                <FormControl.Label _text={{ bold: true, fontSize: "md" }}>
+                  Date of Birth
+                </FormControl.Label>
+                <Input placeholder="DD/MM/YYYY" onChangeText={(value) => setBday(value)} />
+              </FormControl>
+              <Button onPress={() => setModalMuncul(!modalMuncul)} backgroundColor={"#075985"} mt={4}>
+                Save Changes
+              </Button>
+            </Stack>
+            <Modal isOpen={modalMuncul} onClose={() => setModalMuncul(false)} size="lg">
+              <Modal.Content>
+                <Modal.CloseButton />
+                <Modal.Header>Edit Success</Modal.Header>
+                <Modal.Body backgroundColor={"#e0f2fe"}>
+                  <Center>
+                    <FormControl.Label fontColor={'white'}>Profile edit already Changes</FormControl.Label>
+                  </Center>
+                  <Button onPress={() => navigation.navigate('Home')} backgroundColor={"#075985"} mt={5}>
+              Go To Settings
+            </Button>
+                </Modal.Body>
+              </Modal.Content>
+            </Modal>
+            {/*  */}
+          </Card>
+        </Center>
+      </Box>
+    </SafeAreaView>
+  );
+};
+
+export default Edit_Profile;
