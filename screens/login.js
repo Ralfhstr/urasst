@@ -4,9 +4,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+// import { color } from "native-base/lib/typescript/theme/styled-system";
 // import Heading from "native-base/src/theme/components/heading";
 
-const Login = (props) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -23,14 +24,11 @@ const Login = (props) => {
       errors.password = "Password is required";
     }
 
-    // If there are errors, set them in the state and prevent login
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
       return;
     }
 
-    // Your login logic here...
-    // If validation passes, you can proceed with your login logic
     navigation.navigate("Home");
   };
 
@@ -98,7 +96,9 @@ const Login = (props) => {
             </FormControl>
             <HStack justifyContent="flex-end">
               <TouchableOpacity onPress={() => navigation.navigate("FPass")}>
-                <Text fontWeight={"semi-bold"} color={"#176B87"}>
+                <Text _text={{
+                  fontWeight: "semi-bold",
+                 }} color={"#176B87"}>
                   Forgot Password?
                 </Text>
               </TouchableOpacity>
@@ -116,7 +116,10 @@ const Login = (props) => {
                 Don't have an account?
               </Text>
               <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-                <Text color={"#176B87"} fontWeight={"bold"}>
+                <Text 
+                 _text={{
+                  fontWeight: "bold",
+                 }} color={"#176B87"}>
                   Sign Up
                 </Text>
               </TouchableOpacity>
