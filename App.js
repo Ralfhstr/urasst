@@ -21,33 +21,38 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color }) => {
+        tabBarIcon: ({ focused}) => {
           let iconName;
           switch (route.name) {
             case "Home":
               iconName = "home-outline";
+              Name = "home"
               iconSize = 25;
               break;
             case "Wallet":
               iconName = "wallet-outline";
+              Name = 'wallet'
               iconSize = 25;
               break;
             case "Create_jadwal":
               iconName = "add-circle-outline";
+              Name = "add-circle"
               iconSize = 50;
               break;
             case "Calendar":
               iconName = "calendar-outline";
+              Name = "calendar"
               iconSize = 25;
               break;
             case "Setting":
               iconName = "person-outline";
+              Name = "person"
               iconSize = 25;
               break;
           }
           return (
             <Ionicons
-              name={iconName}
+              name={focused ? Name : iconName}
               size={iconSize}
               color={"#0e7490"}
             />

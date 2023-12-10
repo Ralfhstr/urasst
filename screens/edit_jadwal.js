@@ -14,13 +14,13 @@ const Edit_jadwal = () => {
 
   return (
     <NativeBaseProvider>
-      <SafeAreaView flex={1} backgroundColor={'#176B87'}>
+      <SafeAreaView flex={1}>
         <Box p={3} mt={3} flex={1}>
           <HStack ml={2} justifyContent={'flex-start'}>
             <TouchableOpacity onPress={() => navigation.navigate('Jadwal')} >
-              <Ionicons name='arrow-back-outline' size={40} color={"white"} />
+              <Ionicons name='arrow-back-outline' size={40} color={"#176B87"} />
             </TouchableOpacity>
-            <Heading ml={20} mt={1} color={'white'}>
+            <Heading ml={20} mt={1} color={'#176B87'}>
               Edit Jadwal
             </Heading>
           </HStack>
@@ -32,7 +32,7 @@ const Edit_jadwal = () => {
                   <FormControl>
                     <FormControl.Label>
                       <Stack>
-                        <Heading size={'sm'}>
+                        <Heading color={'#176B87'} size={'sm'}>
                           Category
                         </Heading>
                         <Gap height={10} />
@@ -45,41 +45,33 @@ const Edit_jadwal = () => {
                                 </Text>
                               </Button>
                             </Center>
-                            <Center>
-                              <Button backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={20}>
-                                <Text >
+                              <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
+                                <Text color={'#176B87'}>
                                   Food
                                 </Text>
                               </Button>
-                            </Center>
-                            <Center>
-                              <Button backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={20}>
-                                <Text >
+                              <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
+                                <Text color={'#176B87'}>
                                   Work
                                 </Text>
                               </Button>
-                            </Center>
-                            <Center>
-                              <Button backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={20}>
-                                <Text >
+                              <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
+                                <Text color={'#176B87'}>
                                   Music
                                 </Text>
                               </Button>
-                            </Center>
-                            <Center>
-                              <Button backgroundColor={'#DDF2FD'} mr={5} borderRadius={10} w={20}>
-                                <Text >
+                              <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
+                                <Text color={'#176B87'}>
                                   Other
                                 </Text>
-                              </Button>
-                            </Center>
+                              </Button>   
                           </HStack>
                         </ScrollView>
                         <FormControl.HelperText>
                           Select category
                         </FormControl.HelperText>
                         <Gap height={10} />
-                        <Heading size={'sm'}>
+                        <Heading color={'#176B87'} size={'sm'}>
                           Time
                         </Heading>
                         <Gap height={10} />
@@ -88,7 +80,7 @@ const Edit_jadwal = () => {
                           Select Time
                         </FormControl.HelperText>
                         <Gap height={10} />
-                        <Heading size={'sm'}>
+                        <Heading color={'#176B87'} size={'sm'}>
                           Activity
                         </Heading>
                         <Gap height={10} />
@@ -97,7 +89,7 @@ const Edit_jadwal = () => {
                           Insert New Activity
                         </FormControl.HelperText>
                         <Gap height={10} />
-                        <Heading size={'sm'}>
+                        <Heading color={'#176B87'} size={'sm'}>
                           Description
                         </Heading>
                         <Input w={'xs'} placeholder='Exercise and Gym' />
@@ -120,8 +112,8 @@ const Edit_jadwal = () => {
                     </Modal.Content>
                   </Modal>
                 </Box>
-                <Button onPress={() => { setModalVisible(!modalVisible); }} backgroundColor={'info.400'}>
-                  <Text textAlign={'center'} color={'white'}> Save </Text>
+                <Button onPress={() => { setModalVisible(!modalVisible); }} backgroundColor={'#176B87'} borderWidth={1} >
+                  <Text textAlign={'center'} > Save </Text>
                 </Button>
               </Card>
             </Center>

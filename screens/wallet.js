@@ -1,4 +1,4 @@
-import { Heading, Center, TouchableOpacity, Text, Box , Button} from "native-base";
+import { Heading, Center, TouchableOpacity, Text, Box, Button } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 
 const Wallet = () => {
@@ -7,9 +7,9 @@ const Wallet = () => {
   return (
     <>
       <Center flex={1}>
-      <Button>
-            <Text>Login</Text>
-      </Button>
+        <Heading>
+          wallet
+        </Heading>
       </Center>
     </>
   );
