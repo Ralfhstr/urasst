@@ -78,8 +78,6 @@ const Tabs = () => {
       <Tab.Screen name="Create" component={Create} options={noHead} />
       <Tab.Screen name="Calendar" component={Calendar} options={noHead} />
       <Tab.Screen name="Setting" component={Setting} options={noHead} />
-      <Tab.Screen name="Detail" component={Detail} options={noHead} />
-      <Tab.Screen name="Edit" component={Edit} options={noHead} />
     </Tab.Navigator>
   );
 };
@@ -89,12 +87,11 @@ const App = () => {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Tabs} options={noHead} />
-          <Stack.Screen name="Wallet" component={Tabs} options={noHead} />
-          <Stack.Screen name="Create" component={Tabs} options={noHead} />
-          <Stack.Screen name="Calendar" component={Tabs} options={noHead} />
-          <Stack.Screen name="Setting" component={Tabs} options={noHead} />
-          <Stack.Screen name="Category" component={Category} options={noHead} />
+          <Stack.Screen name="Tabs" component={Tabs} options={noHead} />
+          <Stack.Screen name="Detail" component={Detail} options={noHead} />
+          <Stack.Screen name="Edit" component={Edit} options={noHead} />
+          <Stack.Screen name="Wallet" component={Wallet} options={noHead} />
+
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
