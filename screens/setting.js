@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
-import { Box, Center, HStack, VStack, Text, Image, Card, Heading } from 'native-base';
+import { Box, Center, HStack, VStack, Text, Image, Card, Heading, Avatar, Button } from 'native-base';
 import Gap from '../components/Gap';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -8,87 +8,79 @@ import { Ionicons } from '@expo/vector-icons';
 const Setting = ({ navigation }) => {
   return (
     <>
-      <SafeAreaView backgroundColor={"#075985"}>
-        <Center>
+      <SafeAreaView backgroundColor={"#F9F7F7"}>
+        {/* <Center> */}
           <Box mt={10} >
-          <HStack>
-            <Image size={150} borderRadius={100} source={require("../assets/kuromi.jpg")}/>
-            
-          </HStack>
-          <VStack>
-          <Heading size="xl" mb="4" color={"white"}>Kuromi</Heading>
-          <Text fontSize="xl" color={"white"}>Sanrio Entertainment</Text>
-          </VStack>
+          <HStack><Button size="sm" bg={"danger.600"} >Logout</Button></HStack>
+            <VStack>
+              <Avatar alignSelf="center" size="2xl" source={require("../assets/kuromi.jpg")}></Avatar>
+            </VStack>
+            <VStack>
+              <Center>
+                <Heading size="xl" color={"primary.700"}>Kuromi</Heading>
+                <Text fontSize="xl" color={"primary.700"}>Sanrio Entertainment</Text>
+              </Center>
+            </VStack>
           </Box>
-        </Center>
+        {/* </Center> */}
+        <Gap height={18} />
 
         <ScrollView>
-        <Card backgroundColor={'white'} borderTopRadius={30} borderBottomRadius={30}>
-          <Gap height={10} />
-          <TouchableOpacity onPress={() => navigation.navigate('Edit_Profile')}>
-            <VStack>
-              <HStack p={7} justifyContent={'space-between'} space={3} backgroundColor={"#e0f2fe"} height={20} width={"100%"} borderRadius={10}>
-                <Ionicons name='person' size={25} color={"#0c4a6e"} />
-                <VStack>
-                  <Heading size='sm' > Edit Profile</Heading>
-                </VStack>
-                <Ionicons name='chevron-forward-outline' size={25} color={"#0c4a6e"} />
-              </HStack>
-            </VStack>
-          </TouchableOpacity>
-          <Gap height={10} />
-          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-            <VStack>
-              <HStack p={7} justifyContent={'space-between'} space={3} backgroundColor={"#e0f2fe"} height={20} width={"100%"} borderRadius={10}>
-                <Ionicons name='wallet' size={25} color={"#0c4a6e"} />
-                <VStack>
-                  <Heading size='sm' > My Finance</Heading>
-                </VStack>
-                <Ionicons name='chevron-forward-outline' size={25} color={"#0c4a6e"} />
-              </HStack>
-            </VStack>
-          </TouchableOpacity>
-          <Gap height={10} />
-          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-            <VStack>
-              <HStack p={7} justifyContent={'space-between'} space={3} backgroundColor={"#e0f2fe"} height={20} width={"100%"} borderRadius={10}>
-                <Ionicons name='today' size={25} color={"#0c4a6e"} />
-                <VStack>
-                  <Heading size='sm' > My Schedule</Heading>
-                </VStack>
-                <Ionicons name='chevron-forward-outline' size={25} color={"#0c4a6e"} />
-              </HStack>
-            </VStack>
-          </TouchableOpacity>
-          <Gap height={10} />
-          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-            <VStack>
-              <HStack p={7} justifyContent={'space-between'} space={3} backgroundColor={"#e0f2fe"} height={20} width={"100%"} borderRadius={10}>
-                <Ionicons name='settings' size={25} color={"#0c4a6e"} />
-                <VStack>
-                  <Heading size='sm' > Settings</Heading>
-                </VStack>
-                <Ionicons name='chevron-forward-outline' size={25} color={"#0c4a6e"} />
-              </HStack>
-            </VStack>
-          </TouchableOpacity>
-          <Gap height={10} />
-          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-            <VStack>
-              <HStack p={7} justifyContent={'space-between'} space={3} backgroundColor={"#e0f2fe"} height={20} width={"100%"} borderRadius={10}>
-                <Ionicons name='help-circle' size={25} color={"#0c4a6e"} />
-                <VStack>
-                  <Heading size='sm' >Help</Heading>
-                </VStack>
-                <Ionicons name='chevron-forward-outline' size={25} color={"#0c4a6e"} />
-              </HStack>
-            </VStack>
-          </TouchableOpacity>
-        </Card>
+          <Card backgroundColor={'white'} shadow={2} borderTopRadius={20} borderBottomRadius={20}>
+            <Gap height={10} />
+            <TouchableOpacity onPress={() => navigation.navigate('Edit_Profile')}>
+              <VStack>
+                <HStack p={7} justifyContent={'space-between'} space={3} backgroundColor={'white'} shadow={5} height={20} width={"100%"} borderRadius={10}>
+                  <Ionicons name='person' size={25} color={"primary.700"} />
+                  <VStack>
+                    <Heading size='sm' color={"primary.700"} > Edit Profile</Heading>
+                  </VStack>
+                  <Ionicons name='chevron-forward-outline' size={25} color={"primary.700"} />
+                </HStack>
+              </VStack>
+            </TouchableOpacity>
+            <Gap height={10} />
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+              <VStack>
+                <HStack p={7} justifyContent={'space-between'} space={3} backgroundColor={'white'} shadow={5} height={20} width={"100%"} borderRadius={10}>
+                  <Ionicons name='wallet' size={25} color={"primary.700"} />
+                  <VStack>
+                    <Heading size='sm' color={"primary.700"}> My Finance</Heading>
+                  </VStack>
+                  <Ionicons name='chevron-forward-outline' size={25} color={"primary.700"} />
+                </HStack>
+              </VStack>
+            </TouchableOpacity>
+            <Gap height={10} />
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+              <VStack>
+                <HStack p={7} justifyContent={'space-between'} space={3} backgroundColor={'white'} shadow={5} height={20} width={"100%"} borderRadius={10}>
+                  <Ionicons name='today' size={25} color={"primary.700"} />
+                  <VStack>
+                    <Heading size='sm' color={"primary.700"} > My Schedule</Heading>
+                  </VStack>
+                  <Ionicons name='chevron-forward-outline' size={25} color={"primary.700"} />
+                </HStack>
+              </VStack>
+            </TouchableOpacity>
+            <Gap height={10} />
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+              <VStack>
+                <HStack p={7} justifyContent={'space-between'} space={3} backgroundColor={'white'} shadow={5} height={20} width={"100%"} borderRadius={10}>
+                  <Ionicons name='alert-circle' size={25} color={"primary.700"} />
+                  <VStack>
+                    <Heading size='sm' color={"primary.700"} > About</Heading>
+                  </VStack>
+                  <Ionicons name='chevron-forward-outline' size={25} color={"primary.700"} />
+                </HStack>
+              </VStack>
+            </TouchableOpacity>
+            <Gap height={20} />
+          </Card>
         </ScrollView>
       </SafeAreaView>
     </>
-    
+
   );
 
 };

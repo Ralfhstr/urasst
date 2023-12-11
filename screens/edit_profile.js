@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, TouchableOpacity } from 'react-native';
-import { Heading, Text, Center, Box, Image, FormControl, Input, Stack, Card, Modal, Button, VStack } from "native-base";
+import { Heading, Text, Center, Box, Image, FormControl, Input, Stack, Card, Modal, Button, VStack, Avatar } from "native-base";
 import Gap from '../components/Gap';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -14,21 +14,25 @@ const Edit_Profile = () => {
   const [modalMuncul, setModalMuncul] = React.useState(false);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#075985" }}>
-      <Box flex={1} backgroundColor={"#075985"}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#F9F7F7" }}>
+      <Box flex={1} backgroundColor={"#F9F7F7"}>
         <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.goBack()}>
           <Box mt={10} mr={10}>
-            <Ionicons name="arrow-back-outline" size={32} color="white" />
+            <Ionicons name="arrow-back-outline" size={32} color={"primary.700"}/>
           </Box>
         </TouchableOpacity>
         <Center>
-          <Heading color={'white'} size={'xl'}>Edit Profile</Heading>
-          <Image size={150} borderRadius={100} source={require("../assets/kuromi.jpg")} />
+          <Heading color={'primary.700'} size={'xl'}>Edit Profile</Heading>
+          <Gap height={15}/>
+          {/* <Image size={150} borderRadius={100} source={require("../assets/kuromi.jpg")} /> */}
+          <VStack>
+              <Avatar alignSelf="center" size="2xl" source={require("../assets/kuromi.jpg")}></Avatar>
+            </VStack>
           <Gap height={20} />
           <Card backgroundColor={'white'} borderTopRadius={20} borderBottomRadius={20} borderColor={'#075985'} w={'100%'} h={'80%'}>
             <Stack mt="4" space={4} p={4}>
               <FormControl>
-                <FormControl.Label _text={{ bold: true, fontSize: "md" }}>
+                <FormControl.Label _text={{ bold: true, fontSize: "md"}}>
                   Username
                 </FormControl.Label>
                 <Input placeholder="Username" onChangeText={(value) => setUsername(value)} />
@@ -63,7 +67,7 @@ const Edit_Profile = () => {
                   <Center>
                     <FormControl.Label fontColor={'white'}>Profile edit already Changes</FormControl.Label>
                   </Center>
-                  <Button onPress={() => navigation.navigate('Home')} backgroundColor={"#075985"} mt={5}>
+                  <Button onPress={() => navigation.navigate('Home')} backgroundColor={"primary.700"} mt={5}>
               Go To Settings
             </Button>
                 </Modal.Body>
