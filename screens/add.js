@@ -1,8 +1,9 @@
 import React from 'react';
 import { Heading, Center, Box, FormControl, Card, Stack, Input, HStack, Button } from "native-base";
+import Gap from '../components/Gap';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, TouchableOpacity } from "react-native";
 
 const Create = () => {
   const navigation = useNavigation();
@@ -13,13 +14,30 @@ const Create = () => {
 
   return (
     <>
-      <SafeAreaView flex={1} backgroundColor={"#075985"}>
-        <Center flex={2}>
+      <SafeAreaView flex={1} backgroundColor={"#F9F7F7"}>
+        {/* <Center flex={2}>
           <HStack>
-            <Ionicons name='create-outline' size={35} color={"white"} />
-            <Heading color={'white'} size={'xl'}>New Finance</Heading>
+          <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.goBack()}>
+          <Box mr={15}>
+            <Ionicons name="arrow-back-outline" size={35} color="#0e7490"/>
+          </Box>
+          </TouchableOpacity>
+            <Ionicons name='create-outline' size={35} color="#0e7490" />
+            <Heading color="#0e7490" size={'xl'}>New Finance</Heading>
+          </HStack>
+        </Center> */}
+        <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.goBack()}>
+          <Box mt={10} mr={10}>
+            <Ionicons name="arrow-back-outline" size={32} color="#0e7490" />
+          </Box>
+        </TouchableOpacity>
+        <Center>
+          <HStack>
+            {/* <Ionicons name='create-outline' size={35} color="#0e7490" /> */}
+            <Heading color="#0e7490" size={'xl'}>New Transaction</Heading>
           </HStack>
         </Center>
+        <Gap height={18} />
         <Box>
           <Card backgroundColor={'white'} borderTopRadius={20} borderBottomRadius={20} borderColor={'blue.500'} w={'100%'} h={'80%'}>
             <Stack mt="4">

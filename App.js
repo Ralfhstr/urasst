@@ -59,11 +59,13 @@ const Tabs = () => {
         },
         tabBarIconStyle: { marginTop: 5 },
         tabBarStyle: {
+          position: "absolute",
           height: 70,
           borderTopWidth: 0,
           marginBottom: 20,
           marginHorizontal: 20,
-          borderRadius: 20
+          borderRadius: 20,
+          backgroundColor: 'white',
         },
         tabBarLabel: () => null
       })}
