@@ -1,12 +1,31 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, SafeAreaView } from 'react-native';
-import { Box, Center, Heading, Text, HStack, VStack, Button, Modal, FormControl, Input, Card, Divider, Progress} from 'native-base';
+import { Box, Center, Heading, Text, HStack, VStack, Button, Modal, FormControl, Input, Card, Divider, Progress } from 'native-base';
 import { NativeBaseProvider } from "native-base";
+import { Calendar } from 'react-native-calendars';
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from '@expo/vector-icons';
 import Gap from '../components/Gap';
 
 const Detail_savings = () => {
+  const [selectedDate, setSelectedDate] = useState('');
+
+  const renderTasks = () => {
+    if (tasks[selectedDate]) {
+      return tasks[selectedDate].map((task, index) => (
+        <HStack key={`${selectedDate}-${index}`}>
+          <Text bold color={'#0e7490'}>{task.time}</Text>
+          <Text ml={3} bold color={'#155e75'}>{task.task}</Text>
+        </HStack>
+      ));
+    } else {
+      return <Text bold color={'#0e7490'}>No tasks for this date</Text>;
+    }
+  };
+
+  const onDayPress = (day) => {
+    setSelectedDate(day.dateString);
+  };
 
   const navigation = useNavigation();
 
@@ -26,7 +45,7 @@ const Detail_savings = () => {
                 Trip Japan
               </Heading>
               <TouchableOpacity onPress={() => navigation.navigate('Edit_savings')}>
-              <Ionicons name="create-outline" size={23} color={'#176B87'} />
+                <Ionicons name="create-outline" size={23} color={'#176B87'} />
               </TouchableOpacity>
             </HStack>
             <Gap height={10} />
@@ -40,12 +59,14 @@ const Detail_savings = () => {
             <HStack justifyContent={'flex-end'}>
               <Text color={'red.600'}> 30 Days left </Text>
             </HStack>
-            <Gap height={50}/>
+            <Gap height={20} />
+            <Calendar onDayPress={onDayPress} markedDates={{ [selectedDate]: { selected: true } }} />
+            <Gap height={50} />
             <Heading size={'xs'} color={'#176B87'}>
               Description
             </Heading>
-            <Text > 
-            Week 1: $200 ; Week 2: $100; Week 3: $300
+            <Text >
+              Week 1: $200 ; Week 2: $100; Week 3: $300
             </Text>
           </Card>
         </Box>
