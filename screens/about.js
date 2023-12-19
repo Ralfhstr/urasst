@@ -12,15 +12,15 @@ const About = () => {
     return (
         <NativeBaseProvider>
             <SafeAreaView flex={1}>
-                <HStack ml={2} justifyContent={'flex-start'}>
+                <HStack ml={2}>
                     <TouchableOpacity onPress={() => navigation.navigate('Home')} >
                         <Ionicons name='arrow-back-outline' size={40} color={"#176B87"} />
                     </TouchableOpacity>
-                    <Center>
-                        <Heading ml={20} mt={2} color={'#176B87'}>
+                    <Box w={'78%'} alignItems={'center'}>
+                        <Heading mt={2} color={'#176B87'}>
                             About
                         </Heading>
-                    </Center>
+                    </Box>
                 </HStack>
                 <Box mt={5} ml={5} mr={5} backgroundColor={'white'} borderWidth={1} borderColor={'white'} borderRadius={10}>
                     <VStack mt={4} ml={2}>

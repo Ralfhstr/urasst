@@ -20,9 +20,11 @@ const Create_savings = () => {
             <TouchableOpacity onPress={() => navigation.navigate('Home')} >
               <Ionicons name='arrow-back-outline' size={40} color={"#176B87"} />
             </TouchableOpacity>
-            <Heading ml={10} mt={1} color={'#176B87'}>
+            <Box w={'75%'} alignItems={'center'}>
+            <Heading mt={1} color={'#176B87'}>
               Create Savings
             </Heading>
+            </Box>
           </HStack>
           <Gap height={40} />
           <Box flex={1}>

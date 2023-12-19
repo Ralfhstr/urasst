@@ -37,7 +37,9 @@ const Detail_savings = () => {
             <TouchableOpacity onPress={() => navigation.navigate('Home', {})} >
               <Ionicons name="arrow-back-outline" size={40} color={'#176B87'} />
             </TouchableOpacity>
-            <Heading ml={12} mt={1} color={'#176B87'}>Detail Savings</Heading>
+            <Box w={'75%'} alignItems={'center'}>
+              <Heading mt={1} color={'#176B87'}>Detail Savings</Heading>
+            </Box>
           </HStack>
           <Card mt={3} ml={3} mr={3} backgroundColor={'white'} borderWidth={1} borderColor={'white'} borderRadius={10}>
             <HStack justifyContent={'space-between'}>
