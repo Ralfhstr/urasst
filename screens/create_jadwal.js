@@ -25,7 +25,7 @@ const Create_jadwal = () => {
                             <Heading mt={5} ml={7} color={'#176B87'}>
                                 <Ionicons name="reader-outline" size={24} color="#176B87" />
                                 <Text>
-                                    Activity
+                                    Schedule
                                 </Text>
                             </Heading>
                         </HStack>

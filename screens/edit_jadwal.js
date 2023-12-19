@@ -1,6 +1,6 @@
-import {Text, SafeAreaView, TouchableOpacity } from 'react-native'
+import { Text, SafeAreaView, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { Box, Heading, HStack, Center, Card,FormControl, Input, Stack, Button, ScrollView, Modal } from 'native-base'
+import { Box, Heading, HStack, Center, Card, FormControl, Input, Stack, Button, ScrollView, Modal } from 'native-base'
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { NativeBaseProvider } from "native-base";
 import Gap from '../components/Gap';
@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 const Edit_jadwal = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = React.useState(false);
+  const [modalTerlihat, setModalTerlihat] = React.useState(false);
 
 
   return (
@@ -21,7 +22,7 @@ const Edit_jadwal = () => {
               <Ionicons name='arrow-back-outline' size={40} color={"#176B87"} />
             </TouchableOpacity>
             <Heading ml={20} mt={1} color={'#176B87'}>
-              Edit Jadwal
+              Edit Schedule
             </Heading>
           </HStack>
           <Gap height={40} />
@@ -45,27 +46,51 @@ const Edit_jadwal = () => {
                                 </Text>
                               </Button>
                             </Center>
-                              <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
-                                <Text color={'#176B87'}>
-                                  Food
-                                </Text>
-                              </Button>
-                              <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
-                                <Text color={'#176B87'}>
-                                  Work
-                                </Text>
-                              </Button>
-                              <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
-                                <Text color={'#176B87'}>
-                                  Music
-                                </Text>
-                              </Button>
-                              <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
-                                <Text color={'#176B87'}>
-                                  Other
-                                </Text>
-                              </Button>   
+                            <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
+                              <Text color={'#176B87'}>
+                                Food
+                              </Text>
+                            </Button>
+                            <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
+                              <Text color={'#176B87'}>
+                                Work
+                              </Text>
+                            </Button>
+                            <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
+                              <Text color={'#176B87'}>
+                                Music
+                              </Text>
+                            </Button>
+                            <Button backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
+                              <Text color={'#176B87'}>
+                                Other
+                              </Text>
+                            </Button>
+                            <Button onPress={() => {setModalTerlihat(!modalTerlihat);}}  backgroundColor={'white'} mr={5} borderRadius={10} borderWidth={1} borderColor={'#176B87'} w={20}>
+                              <Text color={'#176B87'}>
+                                More
+                              </Text>
+                            </Button>
                           </HStack>
+                          <Modal isOpen={modalTerlihat} onClose={() => setModalTerlihat(false)} avoidKeyboard bottom="4" size="lg" >
+                            <Modal.Content>
+                              <Modal.CloseButton />
+                              <Modal.Header>New Category</Modal.Header>
+                              <Modal.Body>
+                                <FormControl mt="1">
+                                  <FormControl.Label>Input New Category</FormControl.Label>
+                                  <Input />
+                                </FormControl>
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button flex="1" onPress={() => {
+                                  setModalTerlihat(false);
+                                }}>
+                                  Save
+                                </Button>
+                              </Modal.Footer>
+                            </Modal.Content>
+                          </Modal>
                         </ScrollView>
                         <FormControl.HelperText>
                           Select category
