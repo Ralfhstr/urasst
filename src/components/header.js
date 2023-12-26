@@ -30,7 +30,7 @@ const Header = ({ title, withBack = false }) => {
                 onPress={() => navigation.goBack()}
               >
                 <Box mr={"3"}>
-                  <Ionicons name="arrow-back-outline" size={32} color="white" />
+                  <Ionicons name="chevron-forward" size={32} color="white" />
                 </Box>
               </TouchableOpacity>
             )}

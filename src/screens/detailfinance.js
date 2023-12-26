@@ -19,6 +19,11 @@ const Detail = () => {
       <Ionicons name="arrow-back-outline" size={30} color="#fff" />
       </TouchableOpacity>
       </Box>
+      <Box alignItems="center" paddingLeft={8}>
+          <Text fontSize={40} color="#fff" fontWeight="bold">
+            Detail
+          </Text>
+        </Box>
       <Box bg="#427D9D" alignItems="center" flexDirection="row">
       <TouchableOpacity acitveOpacity={0.5} onPress={() => navigation.navigate('Edit')}>
       <Ionicons name="create-outline" size={30} color="#fff"/>
@@ -28,8 +33,10 @@ const Detail = () => {
       </TouchableOpacity>
       </Box>
       </HStack>
-        <Box bg="#fff" alignItems="center" rounded={30}>
-        
+
+      <Box flex={1} alignItems="center" bg>
+        <Box bg="#fff" alignItems="center" rounded={30} >
+          
           <Box alignItems="center">
             <Text fontSize={28} color="#333" fontWeight="bold">
             Kuota
@@ -62,11 +69,10 @@ const Detail = () => {
             </HStack>
           </Box>
         </Box>
+      </Box>
 
     </SafeAreaView>
   );
 };
 
 export default Detail;
-
-

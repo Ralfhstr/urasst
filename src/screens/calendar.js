@@ -22,7 +22,7 @@ const CalendarScreen = () => {
                 </HStack>
             ));
         } else {
-            return <Text bold color={'#0e7490'}>No tasks for this date</Text>;
+            return <Text bold color={'#0e7490'}>No schedule for this date</Text>;
         }
     };
 

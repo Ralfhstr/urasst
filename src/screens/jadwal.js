@@ -2,6 +2,7 @@ import { View, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView } from 're
 import React, { useState } from 'react';
 import { Center, Heading, Image, HStack, Text, Box, VStack, Button, Card, Flex, Checkbox, StatusBar } from 'native-base'
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { NativeBaseProvider } from "native-base";
 import Gap from '../components/Gap';
 import { useNavigation } from '@react-navigation/native';
 
@@ -26,36 +27,35 @@ const Jadwal = () => {
   };
 
   return (
-    <SafeAreaView backgroundColor={'#176B87'} flex={1}>
-      <StatusBar barStyle="light" />
-      <ScrollView>
-        <Box flex={1}>
-          <HStack ml={7} mt={5}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Ionicons name="arrow-back-outline" size={40} color={'white'} />
-            </TouchableOpacity>
-            <Center>
-              <Heading size="lg" color={'white'} ml={12} mt={1}>
-                14 September
-              </Heading>
-            </Center>
-          </HStack>
-          <Gap height={10} />
-          <Box flex={1} p={7}>
-            <VStack>
-              <HStack justifyContent={'space-between'}>
-                <Heading color={'white'}>Today</Heading>
-                <Button backgroundColor={'muted.50'}>
-                  <Text> Add New </Text>
+    <NativeBaseProvider>
+      <SafeAreaView flex={1}>
+        <ScrollView>
+          <Box flex={1} mt={3}>
+            <HStack ml={7}>
+              <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                <Ionicons name="arrow-back-outline" size={40} color={'#176B87'} />
+              </TouchableOpacity>
+              <Center>
+                <Heading size="lg" color={'#176B87'} ml={12} mt={1}>
+                  14 September
+                </Heading>
+              </Center>
+            </HStack>
+            <Gap height={10} />
+            <VStack p={5}>
+              <HStack justifyContent={'space-between'} >
+                <Heading color={'#176B87'}>Today</Heading>
+                <Button backgroundColor={'white'}>
+                  <Text color={'#176B87'}> Add New </Text>
                 </Button>
               </HStack>
-              <Text color={'white'}>6 Task</Text>
+              <Text color={'#176B87'}>6 Task</Text>
             </VStack>
           </Box>
           <Gap height={10} />
-          <Box flex={1} >
+          <Box flex={1} p={3}>
             <Card backgroundColor={'white'} borderTopRadius={30} borderBottomRadius={30} >
-              <Heading>Schedule</Heading>
+              <Heading color={'#176B87'}>My Tasks</Heading>
               <Gap height={20} />
               {tasks.map((task, index) => (
                 <TouchableOpacity
@@ -65,7 +65,9 @@ const Jadwal = () => {
                     p={7}
                     justifyContent={'space-between'}
                     space={4}
-                    backgroundColor={'#DDF2FD'}
+                    borderColor={'#176B87'}
+                    borderWidth={1}
+                    // backgroundColor={'#DDF2FD'}
                     height={20}
                     width={'100%'}
                     borderRadius={10}>
@@ -75,18 +77,18 @@ const Jadwal = () => {
                       colorScheme="green"
                       aria-label="Deskripsi aksesibilitas untuk Checkbox ini"
                     />
-                    <Text>{task.time}</Text>
+                    <Text color={'#176B87'}>{task.time}</Text>
                     <VStack>
                       <HStack>
-                        <Heading size={'xs'} pr={3}>{task.title}</Heading>
-                        <Ionicons name="barbell-outline" color={"black"} size={20} />
+                        <Heading color={'#176B87'} size={'xs'} pr={3}>{task.title}</Heading>
+                        <Ionicons name="barbell-outline" color={"#176B87"} size={20} />
                       </HStack>
-                      <Text strikeThrough={task.isCompleted}>
+                      <Text color={'#176B87'} strikeThrough={task.isCompleted}>
                         {task.desc}
                       </Text>
                     </VStack>
                     <TouchableOpacity onPress={() => navigation.navigate('Edit_jadwal')}>
-                      <Ionicons name="create-outline" size={23} color={'black'} />
+                      <Ionicons name="create-outline" size={23} color={'#176B87'} />
                     </TouchableOpacity>
                   </HStack>
                   <Gap height={10} />
@@ -94,9 +96,9 @@ const Jadwal = () => {
               ))}
             </Card>
           </Box>
-        </Box>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </NativeBaseProvider>
   );
 };
 

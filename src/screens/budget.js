@@ -7,14 +7,15 @@ import { Ionicons } from '@expo/vector-icons';
 
 const Budget = () => {
 
-    const navigation = useNavigation();
     const [isCreateCategoryModalOpen, setCreateCategoryModalOpen] = useState(false);
     const [showCreateCategorySuccessModal, setShowCreateCategorySuccessModal] = useState(false);
     const handleCreateCategory = () => {
         setCreateCategoryModalOpen(false);
         setShowCreateCategorySuccessModal(true);
     };
-
+    
+    const navigation = useNavigation();
+    
     return (
         <NativeBaseProvider>
             <SafeAreaView flex={1}>

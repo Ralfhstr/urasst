@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Center, Stack, Heading, Text, HStack, VStack, Progress, Checkbox, ScrollView, NativeBaseProvider, Button, Modal, StatusBar, } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
-
+  
   const handleCheckboxPress = () => {
     setShowModal(true);
   };
