@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 const Setting = ({ navigation }) => {
   return (
     <>
-      <SafeAreaView backgroundColor={"#F9F7F7"}>
+      <SafeAreaView>
         {/* <Center> */}
         <Box mt={10} >
           {/* <HStack justifyItems="end"></HStack> */}
@@ -28,8 +28,7 @@ const Setting = ({ navigation }) => {
         {/* </Center> */}
         <Gap height={18} />
 
-        <ScrollView>
-          <Card backgroundColor={'white'} shadow={2} borderTopRadius={20} borderBottomRadius={20} h={1000}>
+          <Card backgroundColor={'white'} shadow={2} borderTopRadius={20} borderBottomRadius={20} ml={5} mr={5}>
             <Gap height={10} />
             <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Edit_Profile')}>
               <VStack>
@@ -80,7 +79,6 @@ const Setting = ({ navigation }) => {
             </TouchableOpacity>
             <Gap height={20} />
           </Card>
-        </ScrollView>
       </SafeAreaView>
     </>
 

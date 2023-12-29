@@ -1,9 +1,10 @@
-import React from 'react';
-import { Heading, Center, Box, FormControl, Card, Stack, Input, HStack, Button } from "native-base";
-import Gap from '../components/Gap';
-import { Ionicons } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { Box, Center, Stack, Heading, Text, HStack, VStack, Progress, Checkbox, NativeBaseProvider, Button, Modal, Spacer, Input, ScrollView, } from 'native-base';
+import { TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView, TouchableOpacity } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
+import Gap from '../components/Gap';
 
 const Create = () => {
   const navigation = useNavigation();
@@ -13,64 +14,127 @@ const Create = () => {
   const [Cash, setCash] = React.useState('');
 
   return (
-    <>
-      <SafeAreaView flex={1} backgroundColor={"#F9F7F7"}>
-        {/* <Center flex={2}>
-          <HStack>
-          <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.goBack()}>
-          <Box mr={15}>
-            <Ionicons name="arrow-back-outline" size={35} color="#0e7490"/>
+    <NativeBaseProvider>
+      <ScrollView>
+        <SafeAreaView flex={1}>
+          <Box flex={1}>
+            <Heading mt={6} ml={6} color={'#0e7490'}>
+              <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Wallet')}>
+                <Ionicons name="arrow-back-sharp" size={24} color="#0e7490" />
+              </TouchableOpacity>
+              Add Transactions</Heading>
+            <Center>
+              <Gap height={20} />
+              <Stack>
+
+                <HStack w={'72%'} >
+                  <HStack p={4} rounded={50} backgroundColor={"white"} justifyContent={'space-between'} w={'44%'} shadow={1}>
+                    <Text color={'#0e7490'} fontSize={20} > Outcome </Text>
+                  </HStack>
+                  <HStack p={4} ml={10} rounded={50} backgroundColor={"white"} justifyContent={'space-between'} w={'44%'} shadow={1} >
+                    <Text color={'#0e7490'} fontSize={20}> Income</Text>
+                  </HStack>
+                </HStack>
+
+              </Stack>
+
+              <Box p={4} mt={5} w={80} h={600} rounded="2xl" overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
+                <VStack>
+                  <Text color={'#0e7490'} fontSize={20} mb={2}>Amount</Text>
+                  <Center>
+                    <Input variant="underlined" placeholder="$0" width={40} textAlign="center" fontSize={'2xl'}/>
+                  </Center>
+                  <Text color={'#0e7490'} fontSize={20} mb={2}>Categories</Text>
+                  <HStack>
+                    <VStack>
+                      <Center>
+                        <Box w={20} mb={2} h={20} rounded={100} overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
+                          <Center>
+                            <Ionicons name="basket-outline" size={60} color="#0e7490" />
+                          </Center>
+                        </Box>
+                        <Text color={'#0e7490'} fontSize={18}>Grocery</Text>
+                      </Center>
+                    </VStack>
+                    <VStack>
+                      <Center>
+                        <Box w={20} mb={2} ml={5} h={20} rounded={100} overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
+                          <Center>
+                            <Ionicons name="pizza-outline" size={60} color="#0e7490" />
+                          </Center>
+                        </Box>
+                        <Text ml={5} color={'#0e7490'} fontSize={18} mb={2}>Food</Text>
+                      </Center>
+                    </VStack>
+                    <VStack>
+                      <Center>
+                        <Box w={20} mb={2} ml={5} h={20} rounded={100} overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
+                          <Center>
+                            <Ionicons name="heart-outline" size={60} color="#0e7490" />
+                          </Center>
+                        </Box>
+                        <Text color={'#0e7490'} fontSize={18} ml={5} mb={2}>Health</Text>
+                      </Center>
+                    </VStack>
+                  </HStack>
+
+                  <HStack>
+                    <VStack>
+                      <Center>
+                        <Box w={20} mb={2} h={20} rounded={100} overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
+                          <Center>
+                            <Ionicons name="airplane-outline" size={60} color="#0e7490" />
+                          </Center>
+                        </Box>
+                        <Text color={'#0e7490'} fontSize={18}>Travel</Text>
+                      </Center>
+                    </VStack>
+                    <VStack>
+                      <Center>
+                        <Box w={20} mb={2} ml={5} h={20} rounded={100} overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
+                          <Center>
+                            <Ionicons name="basket" size={60} color="#0e7490" />
+                          </Center>
+                        </Box>
+                        <Text color={'#0e7490'} fontSize={18} ml={5} mb={2}>Grocery</Text>
+                      </Center>
+                    </VStack>
+                    <VStack>
+                      <Center>
+                        <Box w={20} mb={2} ml={5} h={20} rounded={100} overflow="hidden" borderColor="white" borderWidth="1" backgroundColor={'white'} shadow={1}>
+                          <Center>
+                            <Ionicons name="add-outline" size={60} color="#0e7490" />
+                          </Center>
+                        </Box>
+                        <Text ml={5} color={'#0e7490'} fontSize={18} mb={2}>Others</Text>
+                      </Center>
+                    </VStack>
+                  </HStack>
+
+                  <VStack mt={5}>
+                    <Text color={'#0e7490'} fontSize={20}>Date</Text>
+                    <Input variant="unstyled" placeholder="10-20-2020" fontSize={18} ml={-3} />
+                  </VStack>
+                  <VStack mt={5}>
+                    <Text color={'#0e7490'} fontSize={20}>Comment</Text>
+                    <Input fontSize={18} textAlign="center" />
+                  </VStack>
+                  <Box></Box>
+                  <Center>
+                    <Button.Group>
+                      <Button p={4} mb={4} rounded={"2xl"} backgroundColor={'#0e7490'} justifyContent={'space-between'} shadow={1} onPress={() => navigation.navigate('Wallet')}>
+                        Add
+                      </Button>
+                    </Button.Group>
+                  </Center>
+                </VStack>
+              </Box>
+
+            </Center>
           </Box>
-          </TouchableOpacity>
-            <Ionicons name='create-outline' size={35} color="#0e7490" />
-            <Heading color="#0e7490" size={'xl'}>New Finance</Heading>
-          </HStack>
-        </Center> */}
-        <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.goBack()}>
-          <Box mt={10} mr={10}>
-            <Ionicons name="arrow-back-outline" size={32} color="#0e7490" />
-          </Box>
-        </TouchableOpacity>
-        <Center>
-          <HStack>
-            {/* <Ionicons name='create-outline' size={35} color="#0e7490" /> */}
-            <Heading color="#0e7490" size={'xl'}>New Transaction</Heading>
-          </HStack>
-        </Center>
-        <Gap height={18} />
-        <Box>
-          <Card backgroundColor={'white'} borderTopRadius={20} borderBottomRadius={20} borderColor={'blue.500'} w={'100%'} h={'80%'}>
-            <Stack mt="4">
-              <FormControl>
-                <FormControl.Label _text={{ bold: true, fontSize: "md" }}>
-                  Rupiah
-                </FormControl.Label>
-                <Input placeholder="Rp" onChangeText={(value) => setUang({ ...Uang, name: value })} />
-              </FormControl>
-              <FormControl>
-                <FormControl.Label _text={{ bold: true, fontSize: "md" }}>
-                  Notes
-                </FormControl.Label>
-                <Input placeholder="Tulis Keterangan" onChangeText={(value) => setNote({ ...Note, name: value })} />
-              </FormControl>
-              <FormControl>
-                <FormControl.Label _text={{ bold: true, fontSize: "md" }}>
-                  Date
-                </FormControl.Label>
-                <Input placeholder="DD/MM/YYYY" onChangeText={(value) => setDate({ ...Date, name: value })} />
-              </FormControl>
-              <FormControl>
-                <FormControl.Label _text={{ bold: true, fontSize: "md" }}>
-                  By
-                </FormControl.Label>
-                <Input placeholder="Cash or Debit" onChangeText={(value) => setCash({ ...Cash, name: value })} />
-              </FormControl>
-            </Stack>
-            <Button onPress={() => navigation.navigate('Home')} backgroundColor={"#075985"} mt={5}>Add New</Button>
-          </Card>
-        </Box>
-      </SafeAreaView>
-    </>
+        </SafeAreaView>
+      </ScrollView>
+    </NativeBaseProvider>
   );
 };
 
