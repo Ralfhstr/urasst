@@ -32,13 +32,13 @@ const Login = () => {
           toggleAlert("Incorrect Email or Password", error.message);
         });
     } else {
-      console.log("Error", "Data incomplete");
-      toggleAlert("Data incomplete");
+      // console.log("Error", "Data incomplete");
+      // toggleAlert("Data incomplete");
     }
   };
 
   return (
-    <SafeAreaView flex={1} backgroundColor={"#176B87"}>
+    <SafeAreaView flex={1} backgroundColor={"#176B87"} justifyContent={'space-between'}>
       <HStack justifyContent="flex-start" alignItems="center" m={5}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back-outline" size={40} color="white" />
@@ -53,10 +53,10 @@ const Login = () => {
         <Image
           source={require("../assets/login.png")}
           alt="login Image"
-          size={200}
+          size={300}
           mb={5}
         />
-        <Box p={5} w={'100%'} h={500} backgroundColor={"white"} borderTopRadius={20}>
+        <Box p={5} w={'100%'} h={350} backgroundColor={"white"} borderTopRadius={20}>
           <FormControl>
             <FormControl.Label
               _text={{

@@ -54,108 +54,249 @@ export const logoutUser = () => {
     });
 };
 
+export const addSchedule = async (data) => {
+  try {
+    // Ambil data yg sudah login dari fungsi 'getData'
+    const userData = await getData("user");
 
-// export const addNote = async (data) => {
-//   try {
-//     // Ambil data yg sudah login dari fungsi 'getData'
-//     const userData = await getData("user");
+    if (userData) {
+      const dataBaru = {
+        ...data,
+        uid: userData.uid,
+      };
 
-//     if (userData) {
-//       // Tambah note sesuai uid
-//       const dataBaru = {
-//         ...data,
-//         uid: userData.uid,
-//       };
+      await FIREBASE.database()
+        .ref("schedule/" + userData.uid)
+        .push(dataBaru);
 
-//       await FIREBASE.database()
-//         .ref("notes/" + userData.uid)
-//         .push(dataBaru);
+      console.log("Schedule added successfully");
+    } else {
+      Alert.alert("Error", "Login Terlebih Dahulu");
+    }
+  } catch (error) {
+    throw error;
+  }
+};
 
-//       console.log("Note added successfully");
-//     } else {
-//       Alert.alert("Error", "Login Terlebih Dahulu");
-//     }
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const getSchedule = async () => {
+  const userData = await getData("user");
+  const schedulesRef = FIREBASE.database().ref("schedule/" + userData.uid);
 
-// export const getNote = async () => {
-//   const userData = await getData("user");
-//   const notesRef = FIREBASE.database().ref("notes/" + userData.uid);
+  return schedulesRef
+    .once("value")
+    .then((snapshot) => {
+      const schedulesData = snapshot.val();
+      if (schedulesData) {
+        const schedulesArray = Object.entries(schedulesData).map(([scheduleId, scheduleData]) => ({
+          scheduleId,
+          ...scheduleData,
+        }));
+        return schedulesArray;
+      } else {
+        return [];
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching user schedule:", error);
+      return [];
+    });
+};
 
-//   return notesRef
-//     .once("value")
-//     .then((snapshot) => {
-//       const notesData = snapshot.val();
-//       if (notesData) {
-//         const notesArray = Object.entries(notesData).map(([noteId, noteData]) => ({
-//           noteId,
-//           ...noteData,
-//         }));
-//         return notesArray;
-//       } else {
-//         return [];
-//       }
-//     })
-//     .catch((error) => {
-//       console.error("Error fetching user notes:", error);
-//       return [];
-//     });
-// };
+export const editNote = async (noteId, updatedData) => {
+  try {
+    // Ambil data pengguna yang sudah login dari fungsi 'getData'
+    const userData = await getData("user");
 
-// export const editNote = async (noteId, updatedData) => {
-//   try {
-//     // Ambil data pengguna yang sudah login dari fungsi 'getData'
-//     const userData = await getData("user");
+    if (userData) {
+      // Perbarui catatan berdasarkan noteId
+      const noteRef = FIREBASE.database().ref(`notes/${userData.uid}/${noteId}`);
+      const snapshot = await noteRef.once("value");
+      const existingNote = snapshot.val();
 
-//     if (userData) {
-//       // Perbarui catatan berdasarkan noteId
-//       const noteRef = FIREBASE.database().ref(notes/${userData.uid}/${noteId});
-//       const snapshot = await noteRef.once("value");
-//       const existingNote = snapshot.val();
+      if (existingNote) {
+        const updatedNote = {
+          ...existingNote,
+          ...updatedData,
+        };
 
-//       if (existingNote) {
-//         const updatedNote = {
-//           ...existingNote,
-//           ...updatedData,
-//         };
+        await noteRef.update(updatedNote);
+        console.log("Note updated successfully");
+      } else {
+        console.log("Note not found");
+      }
+    } else {
+      Alert.alert("Error", "Login Terlebih Dahulu");
+    }
+  } catch (error) {
+    throw error;
+  }
+};
 
-//         await noteRef.update(updatedNote);
-//         console.log("Note updated successfully");
-//       } else {
-//         console.log("Note not found");
-//       }
-//     } else {
-//       Alert.alert("Error", "Login Terlebih Dahulu");
-//     }
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const deleteNote = async (noteId) => {
+  try {
+    const userData = await getData("user");
 
-// export const deleteNote = async (noteId) => {
-//   try {
-//     const userData = await getData("user");
+    if (!userData) {
+      Alert.alert("Error", "Login Terlebih Dahulu");
+      return;
+    }
 
-//     if (!userData) {
-//       Alert.alert("Error", "Login Terlebih Dahulu");
-//       return;
-//     }
+    const noteRef = FIREBASE.database().ref(`notes/${userData.uid}/${noteId}`);
+    const snapshot = await noteRef.once("value");
+    const existingNote = snapshot.val();
 
-//     const noteRef = FIREBASE.database().ref(notes/${userData.uid}/${noteId});
-//     const snapshot = await noteRef.once("value");
-//     const existingNote = snapshot.val();
+    if (!existingNote) {
+      console.log("Note not found");
+      return;
+    }
 
-//     if (!existingNote) {
-//       console.log("Note not found");
-//       return;
-//     }
+    // Hapus catatan dari database
+    await noteRef.remove();
+    console.log("Note deleted successfully");
+  } catch (error) {
+    throw error;
+  }
+};
 
-//     // Hapus catatan dari database
-//     await noteRef.remove();
-//     console.log("Note deleted successfully");
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+export const addFinance = async (data) => {
+  try {
+    // Ambil data yg sudah login dari fungsi 'getData'
+    const userData = await getData("user");
+
+    if (userData) {
+      // Tambah note sesuai uid
+      const dataBaru = {
+        ...data,
+        uid: userData.uid,
+      };
+
+      await FIREBASE.database()
+        .ref("finance/" + userData.uid)
+        .push(dataBaru);
+
+      console.log("Finance added successfully");
+    } else {
+      Alert.alert("Error", "Login Terlebih Dahulu");
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getFinance = async () => {
+  const userData = await getData("user");
+  const notesRef = FIREBASE.database().ref("finance/" + userData.uid);
+
+  return notesRef
+    .once("value")
+    .then((snapshot) => {
+      const financeData = snapshot.val();
+      if (financeData) {
+        const financeArray = Object.entries(financeData).map(([financeId, financeData]) => ({
+          financeId,
+          ...financeData,
+        }));
+        return financeArray;
+      } else {
+        return [];
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching user finance:", error);
+      return [];
+    });
+};
+
+export const addFCategory = async (data) => {
+  try {
+    const userData = await getData("user");
+
+    if (userData) {
+      const dataBaru = {
+        ...data,
+        uid: userData.uid,
+      };
+
+      await FIREBASE.database()
+        .ref("FCategory/" + userData.uid)
+        .push(dataBaru);
+
+      console.log("Finance Category added successfully");
+    } else {
+      Alert.alert("Error", "Login Terlebih Dahulu");
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getFCategory = async () => {
+  const userData = await getData("user");
+  const fcategorysRef = FIREBASE.database().ref("FCategory/" + userData.uid);
+
+  return fcategorysRef
+    .once("value")
+    .then((snapshot) => {
+      const fCategoryData = snapshot.val();
+      if (fCategoryData) {
+        const fCategoryArray = Object.entries(fCategoryData).map(([fCategoryId, fCategoryData]) => ({
+          fCategoryId,
+          ...fCategoryData,
+        }));
+        return fCategoryArray;
+      } else {
+        return [];
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching user finance category:", error);
+      return [];
+    });
+};
+
+export const addSCategory = async (data) => {
+  try {
+    const userData = await getData("user");
+
+    if (userData) {
+      const dataBaru = {
+        ...data,
+        uid: userData.uid,
+      };
+
+      await FIREBASE.database()
+        .ref("SCategory/" + userData.uid)
+        .push(dataBaru);
+
+      console.log("Schedule Category added successfully");
+    } else {
+      Alert.alert("Error", "Login Terlebih Dahulu");
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getSCategory = async () => {
+  const userData = await getData("user");
+  const scategorysRef = FIREBASE.database().ref("SCategory/" + userData.uid);
+
+  return scategorysRef
+    .once("value")
+    .then((snapshot) => {
+      const sCategoryData = snapshot.val();
+      if (sCategoryData) {
+        const sCategoryArray = Object.entries(sCategoryData).map(([sCategoryId, sCategoryData]) => ({
+          sCategoryId,
+          ...sCategoryData,
+        }));
+        return sCategoryArray;
+      } else {
+        return [];
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching user finance category:", error);
+      return [];
+    });
+};
