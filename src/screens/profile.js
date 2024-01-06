@@ -3,9 +3,22 @@ import { View, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import { Box, Center, HStack, VStack, Text, Button, Avatar, Card, Heading } from 'native-base';
 import Gap from '../components/Gap';
 import { Ionicons } from '@expo/vector-icons';
+import FIREBASE from '../config/FIREBASE';
+
 
 
 const Profile = ({ navigation }) => {
+  const handleLogout = async () => {
+    try {
+      await FIREBASE.auth().signOut();
+      console.log('Logout berhasil');
+      // Navigasi ke halaman login setelah logout berhasil
+      navigation.navigate('Login');
+    } catch (error) {
+      console.error('Error during logout', error);
+    }
+  };
+
   return (
     <>
       <SafeAreaView backgroundColor={"#F9F7F7"}>
@@ -13,7 +26,7 @@ const Profile = ({ navigation }) => {
         <Box mt={10} >
           {/* <HStack justifyItems="end"></HStack> */}
           <HStack justifyContent={'flex-end'} mr={2}>
-            <Button size="sm" bg={"danger.600"} w={'20%'} alignItems="flex-end">Logout</Button>
+            <Button size="sm" bg={"danger.600"} w={'20%'} alignItems="flex-end" onPress={() => handleLogout()}>Logout</Button>
           </HStack>
           <VStack>
             <Avatar alignSelf="center" size="2xl" source={require("../assets/kuromi.jpg")}></Avatar>
