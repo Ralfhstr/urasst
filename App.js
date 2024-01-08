@@ -4,16 +4,17 @@ import { NavigationContainer } from "@react-navigation/native";
 import { NativeBaseProvider} from "native-base";
 import { Ionicons } from '@expo/vector-icons';
 import Edit_jadwal from "./screens/edit_jadwal";
-import Jadwal from "./screens/jadwal";
 import Home from "./screens/home";
 import Wallet from "./screens/wallet";
 import Setting from "./screens/setting";
 import Calendar from "./screens/calendar";
-import Create_jadwal from "./screens/create_jadwal";
 import About from "./screens/about";
 import Detail_savings from "./screens/detail_savings";
 import Create_savings from "./screens/create_savings";
-import Edit_savings from "./screens/edit_savings";
+import CalendarScreen from "./src/screens/calender";
+import Profile from "./src/screens/profile";
+import DSchedule from "./src/screens/dSchedule";
+import CSchedule from "./src/screens/CSchedule";
 
 
 const Stack = createNativeStackNavigator();
@@ -53,26 +54,6 @@ const Tabs = () => {
               Name = "person"
               iconSize = 25;
               break;
-            case "About":
-              iconName = "alert-circle-outline";
-              Name = "alert"
-              iconSize = 25;
-              break;
-            case "Detail_savings":
-              iconName = "alert-circle-outline";
-              Name = "alert"
-              iconSize = 25;
-              break;
-            case "Create_savings":
-              iconName = "alert-circle-outline";
-              Name = "alert"
-              iconSize = 25;
-              break;
-            case "Edit_savings":
-              iconName = "alert-circle-outline";
-              Name = "alert"
-              iconSize = 25;
-              break;
           }
           return (
             <Ionicons
@@ -96,13 +77,8 @@ const Tabs = () => {
     >
       <Tab.Screen name="Home" component={Home} options={noHead} />
       <Tab.Screen name="Wallet" component={Wallet} options={noHead} />
-      <Tab.Screen name="Create_jadwal" component={Create_jadwal} options={noHead}/>
-      <Tab.Screen name="Calendar" component={Calendar} options={noHead} />
-      <Tab.Screen name="Setting" component={Setting} options={noHead} />
-      <Tab.Screen name="About" component={About} options={noHead} />
-      <Tab.Screen name="Detail_savings" component={Detail_savings} options={noHead} />
-      <Tab.Screen name="Create_savings" component={Create_savings} options={noHead} />
-      <Tab.Screen name="Edit_savings" component={Edit_savings} options={noHead} />
+      <Tab.Screen name="Calender" component={CalendarScreen} options={noHead} />
+      <Tab.Screen name="Profile" component={Profile} options={noHead} />
     </Tab.Navigator>
   );
 };
@@ -118,13 +94,38 @@ const App = () => {
           options={noHead}
           />
           <Stack.Screen 
-          name="Jadwal"
-          component={Jadwal}
+          name="dSchedule"
+          component={DSchedule}
           options={noHead}
           />
           <Stack.Screen 
           name="Edit_jadwal"
           component={Edit_jadwal}
+          options={noHead}
+          />
+          <Stack.Screen 
+          name="About"
+          component={About}
+          options={noHead}
+          />
+          <Stack.Screen 
+          name="Detail_savings"
+          component={Detail_savings}
+          options={noHead}
+          />
+          <Stack.Screen 
+          name="Create_savings"
+          component={Create_savings}
+          options={noHead}
+          />
+          <Stack.Screen 
+          name="Edit_savings"
+          component={Edit_savings}
+          options={noHead}
+          />
+          <Stack.Screen 
+          name="CSchedule"
+          component={CSchedule}
           options={noHead}
           />
         </Stack.Navigator>
